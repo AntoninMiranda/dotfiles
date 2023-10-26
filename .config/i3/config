@@ -1,0 +1,215 @@
+# i3 config file (v4)
+
+set $mod Mod4
+set $alt Mod1
+
+###############################
+########## Autostart ##########
+###############################
+
+exec --no-startup-id  setxkbmap -v -layout us_qwerty-fr
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id nitrogen --restore
+exec_always --no-startup-id xrdb -load ~/.Xresources
+exec_always --no-startup-id nm-applet
+exec --no-startup-id xfce4-power-manager
+exec --no-startup-id start_conky_maia
+exec --no-startup-id nitrogen --restore; sleep 1; compton -b
+exec --no-startup-id xautolock -time 10 -locker blurlock
+exec --no-startup-id xmodmap ~/.xmodmap
+exec --no-startup-id xcompmgr -f -O .0.37
+
+############################
+########## Reload ##########
+############################
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $alt+Shift+r restart
+
+# reload the configuration file
+bindsym $atl+c reload
+
+############################
+
+#######################################
+########## Keyboard shortcut ##########
+#######################################
+
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 5%+
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 5%-
+bindsym XF86AudioMute exec --no-startup-id amixer set Master toggle
+
+#######################################
+
+############################
+########## Window ##########
+############################
+
+# Configure border style <normal|1pixel|pixel xx|none|pixel>
+new_window pixel 2
+new_float normal
+
+# Hide borders
+hide_edge_borders none
+
+# change borders
+bindsym $alt+u border none
+bindsym $alt+y border pixel 2
+bindsym $alt+n border normal
+
+# Use Mouse+$mod to drag floating windows
+floating_modifier $mod
+
+# gaps
+gaps inner 10
+
+# font
+font pango:monospace 11
+
+# Scratchpad, Floating
+bindsym $Mod+space floating toggle
+
+# Resize window (you can also use the mouse for that)
+bindsym $alt+r mode "resize"
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym h resize shrink width 5 px or 5 ppt
+        bindsym j resize grow height 5 px or 5 ppt
+        bindsym k resize shrink height 5 px or 5 ppt
+        bindsym l resize grow width 5 px or 5 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # exit resize mode: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+############################
+
+
+#############################
+########## Run app ##########
+#############################
+
+# Session gestion
+bindsym $mod+$alt+l exec --no-startup-id i3lock
+bindsym $mod+$alt+e exec --no-startup-id i3-msg exit
+bindsym $mod+$alt+s exec --no-startup-id i3exit suspend
+bindsym $mod+$alt+r exec --no-startup-id i3exit reboot
+bindsym $mod+$alt+d exec --no-startup-id i3exit poweroff
+# Compton
+#bindsym $alt+t exec --no-startup-id pkill compton
+#bindsym $alt+Ctrl+t exec --no-startup-id compton -b
+# Kill window
+bindsym $alt+q kill
+# Terminal
+bindsym $mod+Return exec kitty
+bindsym $mod+t exec kitty
+# Program launcher
+bindsym $mod+r exec --no-startup-id dmenu_run
+# launch categorized menu
+bindsym $mod+l exec --no-startup-id jgmenu_run >/dev/null 2>&1 &
+#rofi
+bindsym $mod+o exec --no-startup-id rofi_run
+# Password manager
+bindsym $mod+k exec --no-startup-id keepass
+# Web-browser
+bindsym $mod+b exec --no-startup-id brave
+# Discord
+bindsym $mod+d exec --no-startup-id discord
+# Screenshot
+bindsym Print exec --no-startup-id "scrot '%S.png' -e 'mv $f $$(xdg-user-dir PICTURES)/ArchLabs-%S-$wx$h.png ; feh $$(xdg-user-dir PICTURES)/ArchLabs-%S-$wx$h.png'"
+
+#############################
+
+
+##################################
+########## Moving focus ##########
+##################################
+
+# change focus
+bindsym $alt+h focus left
+bindsym $alt+j focus down
+bindsym $alt+k focus up
+bindsym $alt+l focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $alt+Left focus left
+bindsym $alt+Down focus down
+bindsym $alt+Up focus up
+bindsym $alt+Right focus right
+
+# move focused window
+bindsym $alt+Shift+h move left
+bindsym $alt+Shift+j move down
+bindsym $alt+Shift+k move up
+bindsym $alt+Shift+l move right
+
+# alternatively, you can use the cursor keys:
+bindsym $alt+Shift+Left move left
+bindsym $alt+Shift+Down move down
+bindsym $alt+Shift+Up move up
+bindsym $alt+Shift+Right move right
+
+##################################
+
+
+################################
+########## Workspaces ##########
+################################
+
+set $WS1 "1:󰖟"
+set $WS2 "2:"
+set $WS3 "3:󰜏"
+set $WS4 "4:󰕼"
+set $WS5 "5:x"
+set $WS6 "6:x"
+set $WS7 "7:x"
+set $WS8 "8:󰖂"
+
+# workspace assignment
+workspace $WS1 output $Mon1
+workspace $WS2 output $Mon1
+workspace $WS3 output $Mon1
+workspace $WS4 output $Mon1
+workspace $WS5 output $Mon2
+workspace $WS6 output $Mon2
+workspace $WS7 output $Mon2
+workspace $WS8 output $Mon2
+
+# switch to workspace
+bindsym $Mod+1 workspace $WS1
+bindsym $Mod+2 workspace $WS2
+bindsym $Mod+3 workspace $WS3
+bindsym $Mod+4 workspace $WS4
+bindsym $Mod+5 workspace $WS5
+bindsym $Mod+6 workspace $WS6
+bindsym $Mod+7 workspace $WS7
+bindsym $Mod+8 workspace $WS8
+
+
+# switch to next or previous workspace
+bindsym $mod+Mod1+Left workspace prev
+bindsym $mod+Mod1+Right workspace next
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $WS1; workspace $WS1
+bindsym $mod+Shift+2 move container to workspace $WS2; workspace $WS2
+bindsym $mod+Shift+3 move container to workspace $WS3; workspace $WS3
+bindsym $mod+Shift+4 move container to workspace $WS4; workspace $WS4
+bindsym $mod+Shift+5 move container to workspace $WS5; workspace $WS5
+bindsym $mod+Shift+6 move container to workspace $WS6; workspace $WS6
+bindsym $mod+Shift+7 move container to workspace $WS7; workspace $WS7
+bindsym $mod+Shift+8 move container to workspace $WS8; workspace $WS8
+
+################################
+
