@@ -1,0 +1,3 @@
+packer
+trizen
+i3lock-fancy-git
