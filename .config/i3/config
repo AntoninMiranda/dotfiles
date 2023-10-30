@@ -16,8 +16,8 @@ exec --no-startup-id xfce4-power-manager
 exec --no-startup-id start_conky_maia
 exec --no-startup-id nitrogen --restore; sleep 1; compton -b
 exec --no-startup-id xautolock -time 10 -locker blurlock
-exec --no-startup-id xmodmap ~/.xmodmap
-exec --no-startup-id xcompmgr -f -O .0.37
+exec --no-startup-id picom -b ~/.config/picom/picom.conf
+exec_always --no-startup-id xmodmap ~/.xmodmap_custom
 
 ############################
 ########## Reload ##########
@@ -62,6 +62,9 @@ floating_modifier $mod
 
 # gaps
 gaps inner 10
+gaps top 50
+gaps left 5
+gaps right 5
 
 # font
 font pango:monospace 11
@@ -93,6 +96,8 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
+client.focused          #9900FF #9900FF #9900FF #9900FF
+
 ############################
 
 
@@ -101,11 +106,11 @@ mode "resize" {
 #############################
 
 # Session gestion
-bindsym $mod+$alt+l exec --no-startup-id i3lock
+bindsym $mod+$alt+l exec --no-startup-id i3exit lock
 bindsym $mod+$alt+e exec --no-startup-id i3-msg exit
 bindsym $mod+$alt+s exec --no-startup-id i3exit suspend
 bindsym $mod+$alt+r exec --no-startup-id i3exit reboot
-bindsym $mod+$alt+d exec --no-startup-id i3exit poweroff
+bindsym $mod+$alt+d exec --no-startup-id i3exit shutdown
 # Compton
 #bindsym $alt+t exec --no-startup-id pkill compton
 #bindsym $alt+Ctrl+t exec --no-startup-id compton -b
@@ -167,14 +172,14 @@ bindsym $alt+Shift+Right move right
 ########## Workspaces ##########
 ################################
 
-set $WS1 "1:󰖟"
-set $WS2 "2:"
-set $WS3 "3:󰜏"
-set $WS4 "4:󰕼"
-set $WS5 "5:x"
-set $WS6 "6:x"
-set $WS7 "7:x"
-set $WS8 "8:󰖂"
+set $WS1 "󰖟"
+set $WS2 ""
+set $WS3 "󰜏"
+set $WS4 "󰕼"
+set $WS5 "x"
+set $WS6 "x"
+set $WS7 "󱉽"
+set $WS8 "󰖂"
 
 # workspace assignment
 workspace $WS1 output $Mon1
