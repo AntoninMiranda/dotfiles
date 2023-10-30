@@ -8,5 +8,5 @@
 .config/nvim/lua/nemo/undodir/*
 !.config/kitty
 !.config/polybar
-!Install
+!Install/
 !Images/Wallpaper
