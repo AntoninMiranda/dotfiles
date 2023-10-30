@@ -5,8 +5,8 @@
 !.gitignore
 !.config/i3
 !.config/nvim
-.config/nvim/lua/nemo/undodir/*
 !.config/kitty
 !.config/polybar
 !Install/
 !Images/Wallpaper
+.config/nvim/lua/nemo/undodir/*
