@@ -7,14 +7,13 @@ secondary = #693EBF
 alert = #FFFFFF
 disabled = #3949ab
 
-[bar/cyberpunk1]
+[bar/cyberpunk]
 monitor = ${env:MONITOR}
-width = 20%
+width = 98.8%
 offset-x = 0.6%
 height = 24pt
 offset-y = 0.8%
 radius = 6
-
 
 label-mounted-margin=5
 
@@ -49,59 +48,6 @@ font-9 = "feather:size=17;3"
 font-10 = "Monofur Nerd Font:style=Retina:size=15;3"
 
 modules-left = i3 xwindow
-modules-right =
-
-cursor-click = pointer
-cursor-scroll = ns-resize
-
-enable-ipc = true
-
-wm-restack = i3
-
-override-redirect = true
-
-[bar/cyberpunk2]
-monitor = ${env:MONITOR}
-width = 50%
-offset-x = 49.4%
-height = 24pt
-offset-y = 0.8%
-radius = 6
-
-
-label-mounted-margin=5
-
-background = ${colors.background}
-foreground = ${colors.foreground}
-
-line-size = 3pt
-
-border-size = 1pt
-border-color = ${colors.foreground}
-
-padding = 0
-
-padding-left = 0
-padding-right = 1
-
-module-margin = 1
-
-separator = |
-separator-foreground = ${colors.foreground}
-
-font-0 = monospace;2
-font-1 = "Ubuntu Nerd Font:size=10;2"
-font-2 = "Ubuntu Nerd Font:size=16;3"
-font-3 = "Font Awesome 5 Free:style=Regular:pixelsize=8;1"
-font-4 = "Font Awesome 5 Free:style=Solid:pixelsize=8;1"
-font-5 = "Font Awesome 5 Brands:pixelsize=8;1"
-font-6 = "Font Awesome 6 Free:bold:pixelsize=10;2"
-font-7 = "Weather Icons:style=Regular:size=15;3"       
-font-8 = "Iosevka Nerd Font:size=17.5;3"              
-font-9 = "feather:size=17;3"                          
-font-10 = "Monofur Nerd Font:style=Retina:size=15;3"
-
-modules-left =
 modules-right = weather pulseaudio arch-aur-updates battery wlan ip date
 
 cursor-click = pointer
@@ -113,7 +59,6 @@ wm-restack = i3
 
 override-redirect = true
 
-
 [settings]
 screenchange-reload = true
 pseudo-transparency = true
@@ -121,10 +66,6 @@ pseudo-transparency = true
 ###############################################################################
 ################################### Module ####################################
 ###############################################################################
-
-[module/nothing]
-type = custom/script
-exec = echo ""
 
 [module/systray]
 type = internal/tray
@@ -205,7 +146,6 @@ format-background = ${colors.background}
 type = internal/xwindow
 label = %title:0:60:...%
 label-foreground = ${colors.secondary}
-label-maxlen = 21
 
 ###############################################################################
 
