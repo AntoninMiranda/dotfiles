@@ -1,5 +1,0 @@
-# Dirsearch started Thu Oct 19 09:30:04 2023 as: /usr/bin/dirsearch -u http://10.10.10.24:80/
-
-200   223B   http://10.10.10.24/test.html
-403   580B   http://10.10.10.24/uploads/
-301   194B   http://10.10.10.24/uploads    -> REDIRECTS TO: http://10.10.10.24/uploads/
