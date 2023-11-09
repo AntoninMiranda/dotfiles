@@ -1,0 +1,7 @@
+vim.cmd([[set termguicolors]])
+vim.cmd([[colorscheme 2077]])
+vim.cmd[[ highlight Normal guibg=none ]]
+vim.cmd[[ highlight CursorLineNr guibg=#ff3270 ]]
+vim.cmd[[ highlight CursorLine guibg=none ]]
+vim.cmd[[ highlight CursorLineNr gui=bold guibg=none ]]
+vim.cmd[[ highlight SignColumn guibg=none ]]

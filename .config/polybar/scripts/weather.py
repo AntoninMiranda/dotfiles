@@ -21,9 +21,9 @@ def main():
         icons = {"thunderstorm":"", "drizzle":"", "rain":"", "snow":"", "mist":"", "smoke":"", "haze":"", "dust":"", "fog":"", "sand":"", "dust":"", "ash":"", "squall":"", "tornado":"", "clear":"", "clouds":""}
         icon = icons.get(meteo[len(meteo) - 1].lower(), 'none')
         temp = int(float(weather['main']['temp']))
-        #return icon + ' ' + desc + ' ' + temp + ''
-        return ' {}  {}, {}°C '.format(icon, reponse, temp)
-        #return '{}°C'.format(temp)
+        name = meteo[len(meteo) - 1]
+        name = name.capitalize()
+        return ' {}  {}, {}°C '.format(icon, name, temp)
     except:
         return ''
 

@@ -96,7 +96,7 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-client.focused          #9900FF #9900FF #9900FF #9900FF
+client.focused          #ea00d9 #ea00d9 #ea00d9 #ea00d9
 
 ############################
 
@@ -111,20 +111,15 @@ bindsym $mod+$alt+e exec --no-startup-id i3-msg exit
 bindsym $mod+$alt+s exec --no-startup-id i3exit suspend
 bindsym $mod+$alt+r exec --no-startup-id i3exit reboot
 bindsym $mod+$alt+d exec --no-startup-id i3exit shutdown
-# Compton
-#bindsym $alt+t exec --no-startup-id pkill compton
-#bindsym $alt+Ctrl+t exec --no-startup-id compton -b
 # Kill window
 bindsym $alt+q kill
 # Terminal
 bindsym $mod+Return exec kitty
 bindsym $mod+t exec kitty
-# Program launcher
-bindsym $mod+r exec --no-startup-id dmenu_run
-# launch categorized menu
+# Rofi
+bindsym $mod+r exec --no-startup-id rofi -show drun
+# Launch categorized menu
 bindsym $mod+l exec --no-startup-id jgmenu_run >/dev/null 2>&1 &
-#rofi
-bindsym $mod+o exec --no-startup-id rofi_run
 # Password manager
 bindsym $mod+k exec --no-startup-id keepass
 # Web-browser
@@ -147,23 +142,11 @@ bindsym $alt+j focus down
 bindsym $alt+k focus up
 bindsym $alt+l focus right
 
-# alternatively, you can use the cursor keys:
-bindsym $alt+Left focus left
-bindsym $alt+Down focus down
-bindsym $alt+Up focus up
-bindsym $alt+Right focus right
-
 # move focused window
 bindsym $alt+Shift+h move left
 bindsym $alt+Shift+j move down
 bindsym $alt+Shift+k move up
 bindsym $alt+Shift+l move right
-
-# alternatively, you can use the cursor keys:
-bindsym $alt+Shift+Left move left
-bindsym $alt+Shift+Down move down
-bindsym $alt+Shift+Up move up
-bindsym $alt+Shift+Right move right
 
 ##################################
 
@@ -176,8 +159,8 @@ set $WS1 "󰖟"
 set $WS2 ""
 set $WS3 "󰜏"
 set $WS4 "󰕼"
-set $WS5 "x"
-set $WS6 "x"
+set $WS5 ""
+set $WS6 ""
 set $WS7 "󱉽"
 set $WS8 "󰖂"
 
@@ -201,10 +184,9 @@ bindsym $Mod+6 workspace $WS6
 bindsym $Mod+7 workspace $WS7
 bindsym $Mod+8 workspace $WS8
 
-
 # switch to next or previous workspace
-bindsym $mod+Mod1+Left workspace prev
-bindsym $mod+Mod1+Right workspace next
+bindsym $mod+$alt+Left workspace prev
+bindsym $mod+$alt+Right workspace next
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $WS1; workspace $WS1
@@ -217,4 +199,3 @@ bindsym $mod+Shift+7 move container to workspace $WS7; workspace $WS7
 bindsym $mod+Shift+8 move container to workspace $WS8; workspace $WS8
 
 ################################
-
