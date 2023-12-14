@@ -7,15 +7,12 @@ set $alt Mod1
 ########## Autostart ##########
 ###############################
 
-exec --no-startup-id  setxkbmap -v -layout us_qwerty-fr
+exec_always --no-startup-id  setxkbmap us qwerty-fr
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id nitrogen --restore
 exec_always --no-startup-id xrdb -load ~/.Xresources
 exec_always --no-startup-id nm-applet
-exec --no-startup-id xfce4-power-manager
-exec --no-startup-id start_conky_maia
-exec --no-startup-id nitrogen --restore; sleep 1; compton -b
-exec --no-startup-id xautolock -time 10 -locker blurlock
+exec_always --no-startup-id nitrogen --restore; sleep 1; compton -b
 exec_always --no-startup-id picom
 exec_always --no-startup-id xmodmap ~/.xmodmap_custom
 
@@ -35,9 +32,12 @@ bindsym $atl+c reload
 ########## Keyboard shortcut ##########
 #######################################
 
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 5%+
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 5%-
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 10%-
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +10%
 bindsym XF86AudioMute exec --no-startup-id amixer set Master toggle
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 5%-
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 5%+
+bindsym XF86Tools exec --no-startup-id kitty -e nvim
 
 #######################################
 
@@ -106,11 +106,12 @@ client.focused          #ea00d9 #ea00d9 #ea00d9 #ea00d9
 #############################
 
 # Session gestion
-bindsym $mod+$alt+l exec --no-startup-id i3exit lock
+bindsym $mod+$alt+l exec --no-startup-id ~/.config/i3/scripts/i3exit lock
 bindsym $mod+$alt+e exec --no-startup-id i3-msg exit
-bindsym $mod+$alt+s exec --no-startup-id i3exit suspend
-bindsym $mod+$alt+r exec --no-startup-id i3exit reboot
-bindsym $mod+$alt+d exec --no-startup-id i3exit shutdown
+bindsym $mod+$alt+s exec --no-startup-id ~/.config/i3/scripts/i3exit suspend
+bindsym $mod+$alt+r exec --no-startup-id ~/.config/i3/scripts/i3exit reboot
+bindsym $mod+$alt+d exec --no-startup-id ~/.config/i3/scripts/i3exit shutdown
+bindsym $mod+$alt+h exec --no-startup-id ~/.config/i3/scripts/i3exit hibernate
 # Kill window
 bindsym $alt+q kill
 # Terminal
@@ -135,6 +136,8 @@ bindsym Print exec --no-startup-id "scrot '%S.png' -e 'mv $f $$(xdg-user-dir PIC
 ##################################
 ########## Moving focus ##########
 ##################################
+
+bindsym $alt+f fullscreen toggle
 
 # change focus
 bindsym $alt+h focus left
