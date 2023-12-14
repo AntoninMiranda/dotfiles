@@ -16,6 +16,6 @@ fi" >> /etc/profile
 ```
 
 ### if you want quto start on your arch make this
-[Auto run os and skip grub menu]:https://wiki.archlinux.org/title/GRUB/Tips_and_tricks#Hide_GRUB_unless_the_Shift_key_is_held_down
+[Auto run os and skip grub menu](https://wiki.archlinux.org/title/GRUB/Tips_and_tricks#Hide_GRUB_unless_the_Shift_key_is_held_down)
 
 ![ArchLabs-59-2160x1440](https://github.com/AntoninMiranda/dotfiles/assets/114911103/d15025ae-ea6f-476f-a317-9d63d4b8d5b2)
