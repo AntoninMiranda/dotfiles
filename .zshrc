@@ -2,8 +2,8 @@
 ########## Exports ##########
 #############################
 
-export CYBER="/home/nemo/Cybersec/Web/BurpSuiteCommunity"
 #export PATH="$PATH:$CYBER"
+export PATH="$PATH:/home/nemo/Downloads/coding-style-checker"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -53,6 +53,7 @@ alias ls="exa"
 alias la="exa -la"
 alias l="exa -l"
 alias nv="nvim"
+alias rr="ranger"
 
 # for zsh
 alias zshconfig="mate ~/.zshrc"
@@ -61,11 +62,15 @@ alias ohmyzsh="mate ~/.oh-my-zsh"
 # for nmap
 alias nmp="sudo nmap -sS -Pn -sC -p1-65535 -A -T4"
 
+# for docker epitest
+alias epi="sudo docker run -it -v $(pwd):/tmp/epitech epitechcontent/epitest-docker /bin/bash"
+
 ###########################
 
 #########################
 ######### Exec ##########
 #########################
 
+archey3
 
 #########################

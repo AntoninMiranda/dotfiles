@@ -7,14 +7,15 @@ set $alt Mod1
 ########## Autostart ##########
 ###############################
 
-exec_always --no-startup-id  setxkbmap us qwerty-fr
+exec_always --no-startup-id setxkbmap us qwerty-fr
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id nitrogen --restore
 exec_always --no-startup-id xrdb -load ~/.Xresources
 exec_always --no-startup-id nm-applet
-exec_always --no-startup-id nitrogen --restore; sleep 1; compton -b
+exec --no-startup-id nitrogen --restore; sleep 1; compton -b
 exec_always --no-startup-id picom
 exec_always --no-startup-id xmodmap ~/.xmodmap_custom
+exec_always --no-startup-id xautolock -time 12 -locker "i3lock-fancy" -detectsleep
 
 ############################
 ########## Reload ##########

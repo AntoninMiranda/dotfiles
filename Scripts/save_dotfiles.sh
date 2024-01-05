@@ -1,9 +1,10 @@
-cp -r ~/.config/i3 ~/Dotfiles/.config/
-cp -r ~/.config/polybar ~/Dotfiles/.config/
-cp -r ~/.config/kitty ~/Dotfiles/.config/
-cp -r ~/.config/rofi ~/Dotfiles/.config/
-cp -r ~/.config/nvim ~/Dotfiles/.config/
-cp -r ~/.config/picom ~/Dotfiles/.config/
-cp -r ~/.config/ranger ~/Dotfiles/.config/
-rm -rf ~/Dotfiles/.config/nvim/lua/nemo/undodir/*
-echo "\n" > ~/Dotfiles/.config/nvim/lua/nemo/undodir/.exist
+cp -r ~/.config/i3 ~/dotfiles/.config/
+cp -r ~/.config/polybar ~/dotfiles/.config/
+cp -r ~/.config/kitty ~/dotfiles/.config/
+cp -r ~/.config/rofi ~/dotfiles/.config/
+cp -r ~/.config/nvim ~/dotfiles/.config/
+cp -r ~/.config/picom ~/dotfiles/.config/
+cp -r ~/.config/ranger ~/dotfiles/.config/
+cp ~/.zshrc ~/dotfiles
+rm -rf ~/dotfiles/.config/nvim/lua/nemo/undodir/*
+echo "\n" > ~/dotfiles/.config/nvim/lua/nemo/undodir/.exist

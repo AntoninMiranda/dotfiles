@@ -15,7 +15,7 @@ require("lazy").setup({
   -- Packer manager --
     'wbthomason/packer.nvim',
   -- Header --
-    'Nero-F/vim-tek-header',
+    'AntoninMiranda/epitech_header.nvim',
   -- Themes --
     -- 'akai54/2077.nvim',
     { "folke/tokyonight.nvim",
